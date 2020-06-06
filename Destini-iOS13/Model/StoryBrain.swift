@@ -16,8 +16,28 @@ struct StoryBrain {
     ]
     var storyNum = 0
     
-    func nextStory(userChoice: String) {
+    mutating func nextStory(_ userChoice: String) -> Int {
         
+        if userChoice == stories[storyNum].choice1Text {
+                   storyNum += 1
+               } else {
+                   storyNum += 2
+               }
+        return storyNum
+
+        }
+    func getStoryTitle() -> String {
+        let storyTitle = stories[storyNum].storyTitle
+        return storyTitle
+    }
+    
+    func getChoice1ButtonText() -> String {
+        let choice1ButtonText = stories[storyNum].choice1Text
+        return choice1ButtonText
+    }
+    func getChoice2ButtonText() -> String {
+        let choice2ButtonText = stories[storyNum].choice2Text
+        return choice2ButtonText
     }
 }
 
